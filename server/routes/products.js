@@ -15,13 +15,14 @@ const verifyAdmin = (req, res, next) => {
 // Add product (admin only)
 router.post('/add', verifyUser, verifyAdmin, async (req, res) => {
   try {
-    const { name,description,price,discount,product_img_url } = req.body;
+    const { name,description,price,discount,product_img_url,category } = req.body;
     const newProduct = new Product({
       name,
       description,
       price,
       discount,
-      product_img_url
+      product_img_url,
+      category
     });
     await newProduct.save();
     res.status(201).json(newProduct);
@@ -29,6 +30,15 @@ router.post('/add', verifyUser, verifyAdmin, async (req, res) => {
     res.status(500).json({ message: 'Error adding product', error });
   }
 });
+//Get admin products
+router.get('/getadminproducts', verifyUser, verifyAdmin, async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.status(200).json(products);
+    } catch (error) {
+      res.status(500).json({ message: 'Error getting products', error });
+      }
+      });
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -37,6 +47,32 @@ router.get('/', async (req, res) => {
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving products', error });
+  }
+});
+
+router.get('/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const products = await Product.find({ category: category });
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching category products', error: error.message });
+  }
+});
+router.get("/product/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({
+      product,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching product', error: error.message });
   }
 });
 

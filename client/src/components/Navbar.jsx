@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Search from './Search';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showAdminPopup, setShowAdminPopup] = useState(false);
@@ -82,13 +83,7 @@ const navigate = useNavigate();
     </a>
 
     <div className='flex flex-wrap w-full items-center'>
-    <div className="relative xl:w-96 max-lg:w-full lg:ml-10 max-md:mt-4 max-lg:ml-4">
-  <input type='text' placeholder='Search Products...' 
-         className='w-full bg-gray-100 focus:bg-transparent pl-10 pr-6 rounded h-11 outline-[#333] text-sm transition-all'  />
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 absolute left-3 top-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-  </svg>
-</div>
+    <Search />
       <div className="ml-auto max-lg:mt-4">
 
         <ul className='flex items-center'>
@@ -196,7 +191,7 @@ const navigate = useNavigate();
     </ul>
   </div>
 </header>
-<ProductCard />
+
     </div>
   )
 }
