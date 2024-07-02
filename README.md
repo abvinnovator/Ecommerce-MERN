@@ -17,6 +17,8 @@ This project implements an Ecommerce platform using the MERN stack (MongoDB, Exp
 
 ![Screenshot 1](https://github.com/abvinnovator/Ecommerce-MERN/assets/144054938/e24c3b6c-8e35-401b-a10c-0585e110fdd7)
 ![Screenshot 2](https://github.com/abvinnovator/Ecommerce-MERN/assets/144054938/4e5b17e2-63d8-4b2d-b5bf-d58bb42ad90f)
+![Screenshot 2024-07-02 140817](https://github.com/abvinnovator/Ecommerce-MERN/assets/144054938/aa897a98-554b-4a7d-b3a6-8d18382366a3)
+
 
 ## Installation
 
