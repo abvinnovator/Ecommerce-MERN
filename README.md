@@ -27,10 +27,10 @@ This project implements an Ecommerce platform using the MERN stack (MongoDB, Exp
 
 2. Install dependencies for both backend and frontend:
    ```bash
-   cd Ecommerce-MERN/backend
+   cd server
    npm install
    
-   cd ../frontend
+   cd client
    npm install
    ```
 
@@ -38,13 +38,13 @@ This project implements an Ecommerce platform using the MERN stack (MongoDB, Exp
 
 1. Start the backend server:
    ```bash
-   cd backend
+   cd server
    npm start
    ```
 
 2. Start the frontend server:
    ```bash
-   cd frontend
+   cd client
    npm run dev
    ```
 
